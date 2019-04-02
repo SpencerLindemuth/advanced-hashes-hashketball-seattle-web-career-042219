@@ -135,7 +135,7 @@ end
 
 def shoe_size(player)
   shoe = 0
-  game_hash.each do |city, team|
+  game_hash.each do |city, teams|
     team.each do |attribute, info|
       team[:players].each do |name|
         #binding.pry
@@ -170,8 +170,8 @@ def player_numbers(team)
   numbers = []
   game_hash.each do |city, teams|
     if teams[:team_name] == team
-      teams[:players].each do |stats, name|
-        numbers << name[:number]
+      teams[:players].each do |name, stats|
+        numbers << stats[:number]
       end
     end
   end
